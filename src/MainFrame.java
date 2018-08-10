@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
@@ -22,8 +23,8 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JButton bAttack; 
 	private JLabel championLabel;
 	private JLabel combatLabel;
-	private JPanel combatPanel;
 	String combatLog="asdasd";
+	private int i =0;
 
 //	BufferedImage champion = ImageIO.read(MainFrame.class.getClassLoader().getResourceAsStream("images/champion.png"));
 	public static void launcFrame() {
@@ -83,11 +84,9 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		combatLabel = new JLabel("New label");
 		combatLabel.setBounds(595, 563, 269, 66);
+		combatLabel.setBackground(Color.BLUE);
+		combatLabel.setForeground(Color.BLACK);
 		frame.getContentPane().add(combatLabel);
-		
-		combatPanel = new JPanel();
-		combatPanel.setBounds(100, 100, 100, 100);
-
 		
 		
 
@@ -98,10 +97,13 @@ public class MainFrame extends JFrame implements ActionListener {
 		
 		// TODO Auto-generated method stub
 		if(e.getSource() == bAttack) {
-			combatLog.concat("newAttack\n");
-			combatLabel.setText(combatLog);
-			
+			i++;
+			System.out.println(i);
+			combatLog = combatLog + "new Attack\n";
+			combatLabel.setText(combatLog+"\n");
+			combatLabel.setForeground(Color.DARK_GRAY);
+	
 		}
+		frame.getContentPane().add(combatLabel);
 	}
-
 }
