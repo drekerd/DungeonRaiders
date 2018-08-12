@@ -67,7 +67,8 @@ public class MainFrame extends JFrame implements ActionListener {
 	 */
 	private void initialize() throws IOException{
 		
-		Player player = new Player();
+//		Player player = new Player();
+	
 		
 		frame = new JFrame();
 		frame.setBounds(0,0,1920,1080);
@@ -146,10 +147,12 @@ public class MainFrame extends JFrame implements ActionListener {
 			
 			i++;
 			Player player = new Player();
+			VampyreKing enemy = new VampyreKing("Vlad");
+			
 			player.setDamage();
 			newText ="<html> <br/> Player attack did <html>";
 			combatLog = combatLog.concat(newText.concat(Integer.toString(player.getDamage())).concat(" damage!"));
-
+			enemy.takeDamage(player.getDamage());
 //			System.out.println(combatLog);
 			combatLabel.setText(combatLog);
 			combatLabel.paintImmediately(combatLabel.getVisibleRect());

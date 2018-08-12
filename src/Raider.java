@@ -26,6 +26,7 @@ public class Raider {
         
 //		MainFrame frame = new MainFrame();
         
+        
 		MainFrame.launcFrame();
 		
 		//Fight With VampyreKing folded here
