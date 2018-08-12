@@ -11,9 +11,23 @@ public class Raider {
 	public static void main(String[] args) throws IOException {
 		
 		
-		
+		Player tim = new Player("Mário");
+        tim.pickUpLoot(new Loot("Invisibility", LootType.POTION, 4));
+        tim.pickUpLoot(new Loot("Mithril", LootType.ARMOR, 183));
+        tim.pickUpLoot(new Loot("Ring of speed", LootType.RING, 25));
+        tim.pickUpLoot(new Loot("Red Potion", LootType.POTION, 2));
+        tim.pickUpLoot(new Loot("Cursed Shield", LootType.ARMOR, -8));
+        tim.pickUpLoot(new Loot("Brass Ring", LootType.RING, 1));
+        tim.pickUpLoot(new Loot("Chain Mail", LootType.ARMOR, 4));
+        tim.pickUpLoot(new Loot("Gold Ring", LootType.RING, 12));
+        tim.pickUpLoot(new Loot("Health Potion", LootType.POTION, 3));
+        tim.pickUpLoot(new Loot("Silver Ring", LootType.RING, 6));
+        tim.showInventory();
+        
 //		MainFrame frame = new MainFrame();
+        
 		MainFrame.launcFrame();
+		
 		//Fight With VampyreKing folded here
 		//
 		//
@@ -55,18 +69,7 @@ public class Raider {
 				
 				
 				
-//		        Player tim = new Player("Mário");
-//		        tim.pickUpLoot(new Loot("Invisibility", LootType.POTION, 4));
-//		        tim.pickUpLoot(new Loot("Mithril", LootType.ARMOR, 183));
-//		        tim.pickUpLoot(new Loot("Ring of speed", LootType.RING, 25));
-//		        tim.pickUpLoot(new Loot("Red Potion", LootType.POTION, 2));
-//		        tim.pickUpLoot(new Loot("Cursed Shield", LootType.ARMOR, -8));
-//		        tim.pickUpLoot(new Loot("Brass Ring", LootType.RING, 1));
-//		        tim.pickUpLoot(new Loot("Chain Mail", LootType.ARMOR, 4));
-//		        tim.pickUpLoot(new Loot("Gold Ring", LootType.RING, 12));
-//		        tim.pickUpLoot(new Loot("Health Potion", LootType.POTION, 3));
-//		        tim.pickUpLoot(new Loot("Silver Ring", LootType.RING, 6));
-//		        tim.showInventory();
+		        
 //		        
 //
 //		        System.out.println(tim.score());

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 	public class Player {
 
@@ -8,6 +9,10 @@ import java.util.ArrayList;
 	    private int score;
 	    private Weapon weapon;
 	    private ArrayList<Loot> inventory;
+	    private int playerAttack = 1;
+	    private int damageDone;
+	    
+	    BattleField field = new BattleField();
 
 	    public Player() {
 	        this("Unkown Player");
@@ -133,6 +138,37 @@ import java.util.ArrayList;
 	            total = total + allLoot.getValue();
 	        }
 	        return total;
+	    }
+	    
+	    public void setDamage() {
+	    	
+	    	Random rand = new Random();
+	    	int upOrLow = rand.nextInt(2);
+	    	int weaponHalfDamage = this.weapon.getDamageInflicted()/2;
+	    	System.out.println("UpOrLow "+upOrLow);
+	    	//if random is 0, damage will decrease a random value down to half of the Damage Value of the weapon equiped
+	    	//if random is 1, damage will increase a random value up to half of the Damage Value of the weapon equiped 
+	    	if(upOrLow != 1) {
+	    		
+	    		int damage = rand.nextInt(weaponHalfDamage)+1;
+	    		this.damageDone = this.weapon.getDamageInflicted()-damage;
+	    		System.out.println("Damage Done " + this.damageDone);
+	    		System.out.println("Random de Damage "+damage);
+	    		
+	    	}else if(upOrLow == 1) {
+	    		
+	    		int damage = rand.nextInt(weaponHalfDamage)+1;
+	    		this.damageDone = this.weapon.getDamageInflicted()+damage;
+	    		System.out.println(this.damageDone);
+	    		System.out.println("Damage Done " + this.damageDone);
+	    		System.out.println("Random de Damage "+damage);
+	    	}
+	    	
+	    }
+	    
+	    public int getDamage() {
+	    	
+	    	return this.damageDone;
 	    }
 	}
 
