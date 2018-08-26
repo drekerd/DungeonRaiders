@@ -1,21 +1,28 @@
 
+
 public class Enemy {
 	 private String name;
 	    private int hitPoints;
 	    private int lives;
+	    private int damageReturn;
+	    private boolean hasDodged;
+
 
 	    public Enemy(String name, int hitPoints, int lives) {
 	        this.name = name;
 	        this.hitPoints = hitPoints;
 	        this.lives = lives;
+	     
 	    }
 
 	    public void takeDamage(int damage){
 	        int remainingHitPoints = this.hitPoints - damage;
+	        this.damageReturn = damage;
 	        System.out.print(this.getName()+" took "+ damage + " damage!");
 	        if(remainingHitPoints>0){
 	            setHitPoints(remainingHitPoints);
 	            System.out.println("He still has "+this.hitPoints+" left");
+	            
 	        }else{
 	            this.lives = this.lives-1;
 	            if(lives >0){
@@ -56,4 +63,19 @@ public class Enemy {
 	    public void setLives(int lives) {
 	        this.lives = lives;
 	    }
+	    public boolean getDodge (boolean dodge) {
+	    	hasDodged = dodge;
+	    	return hasDodged;
+	    }
+	    public String toString() {
+	    	
+	    	if(hasDodged) {
+	    		return "<html> <br/> <html>" + getName().concat(" Dodged the Attack ");
+	    	}else {
+	    		return "<html> <br/> <html>" + getName().concat(" took ").concat(Integer.toString(damageReturn)).concat(" damage");
+	    	}
+	    
+	    }
+	    
+	    
 }

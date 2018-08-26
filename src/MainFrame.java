@@ -35,12 +35,14 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JScrollPane combatScrollLog;
 	private JPanel panel;
 	private int playerDamageDone;
-	
+	VampyreKing enemy = new VampyreKing("Vlad");
 
 //	BufferedImage champion = ImageIO.read(MainFrame.class.getClassLoader().getResourceAsStream("images/champion.png"));
 	public static void launcFrame() {
 		
 		Player player = new Player();
+		
+
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -65,7 +67,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() throws IOException{
+	public void initialize() throws IOException{
 		
 //		Player player = new Player();
 	
@@ -122,6 +124,7 @@ public class MainFrame extends JFrame implements ActionListener {
 		playerItems.setBounds(10, 662, 512, 294);
 		
 		
+
 //		System.out.println(player.showInventory());
 //		playerItems.setText(player.showInventory());
 //		frame.getContentPane().add(playerItems);
@@ -147,13 +150,16 @@ public class MainFrame extends JFrame implements ActionListener {
 			
 			i++;
 			Player player = new Player();
-			VampyreKing enemy = new VampyreKing("Vlad");
 			
 			player.setDamage();
-			newText ="<html> <br/> Player attack did <html>";
-			combatLog = combatLog.concat(newText.concat(Integer.toString(player.getDamage())).concat(" damage!"));
+			newText ="<html> <br/> Player performed an Attack <html>";
+			combatLog = combatLog.concat(newText);
 			enemy.takeDamage(player.getDamage());
+			combatLog = combatLog.concat(enemy.toString());
+
+			
 //			System.out.println(combatLog);
+			
 			combatLabel.setText(combatLog);
 			combatLabel.paintImmediately(combatLabel.getVisibleRect());
 			combatLabel.setForeground(Color.DARK_GRAY);
