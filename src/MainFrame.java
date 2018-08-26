@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JButton bErase;
 	
 	private JLabel championLabel;
+	private JLabel enemyLabel;
 	
 	private JLabel combatLabel;
 	
@@ -110,6 +111,12 @@ public class MainFrame extends JFrame implements ActionListener {
 		championLabel.setBounds(10, 0, 512, 512);
 		frame.getContentPane().add(championLabel);
 		
+		enemyLabel = new JLabel();
+		Image enemyImage = new ImageIcon(getClass().getResource("bat.png")).getImage();
+		enemyLabel.setIcon(new ImageIcon(enemyImage));
+		enemyLabel.setBounds(1300, 0, 512, 512);
+		frame.getContentPane().add(enemyLabel);
+		
 //		JLabel lblCombatLog = new JLabel("Combat log");
 //		lblCombatLog.setBounds(693, 6, 111, 16);
 //		frame.getContentPane().add(lblCombatLog);
@@ -170,6 +177,5 @@ public class MainFrame extends JFrame implements ActionListener {
 			
 		}
 		frame.getContentPane().add(combatLabel);
-//		frame.getContentPane().add(combatScrollLog);
 	}
 }
