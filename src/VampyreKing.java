@@ -2,14 +2,14 @@ import java.util.Random;
 
 public class VampyreKing extends Vampyre{
 	
-
+	
 	
     public VampyreKing(String name) {
-        super(name,140,1);
+        super(name,140,1,"Boss");
 
     }
     @Override
-    public void takeDamage(int damage){
+    public void takeDamage(Weapon weapon){
     	int i =0;
     	while(i == 0){
     		if(this.dodges()) {
@@ -17,7 +17,7 @@ public class VampyreKing extends Vampyre{
     			continue;
     	}else {
     		i++;
-    		super.takeDamage(damage/2);
+    		super.takeDamage(weapon);
     	}
     		
         }
@@ -46,6 +46,5 @@ public class VampyreKing extends Vampyre{
         	super.getDodge(false);
             return false;
     }
-    
     
 }

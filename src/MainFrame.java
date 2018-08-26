@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.function.LongToDoubleFunction;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -36,11 +37,12 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JPanel panel;
 	private int playerDamageDone;
 	VampyreKing enemy = new VampyreKing("Vlad");
+	Player player = new Player();
 
 //	BufferedImage champion = ImageIO.read(MainFrame.class.getClassLoader().getResourceAsStream("images/champion.png"));
 	public static void launcFrame() {
 		
-		Player player = new Player();
+		
 		
 
 		
@@ -149,12 +151,13 @@ public class MainFrame extends JFrame implements ActionListener {
 			String newText;
 			
 			i++;
-			Player player = new Player();
 			
-			player.setDamage();
+			
+			//player.setDamage();
 			newText ="<html> <br/> Player performed an Attack <html>";
 			combatLog = combatLog.concat(newText);
-			enemy.takeDamage(player.getDamage());
+			System.out.println("Weapon Damage "+ player.getWeapon().getDamageInflicted());
+			enemy.takeDamage(player.getWeapon());
 			combatLog = combatLog.concat(enemy.toString());
 
 			
