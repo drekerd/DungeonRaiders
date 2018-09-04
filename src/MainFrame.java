@@ -31,6 +31,8 @@ public class MainFrame extends JFrame implements ActionListener {
 	private JLabel enemyLabel;
 	
 	private JLabel combatLabel;
+	private JProgressBar progressBar;
+	private JLabel enemyHpDisplay;
 	
 	String combatLog="";
 	private int i =0;
@@ -131,23 +133,17 @@ public class MainFrame extends JFrame implements ActionListener {
 		//Player Items List
 		JLabel playerItems = new JLabel();
 		playerItems.setBounds(10, 662, 512, 294);
-		
-		
 
-//		System.out.println(player.showInventory());
-//		playerItems.setText(player.showInventory());
-//		frame.getContentPane().add(playerItems);
-		
-		
-		
-//		frame.add(combatScrollLog);
-//		frame.setSize(frame.getPreferredSize());
-//		frame.setVisible(true);
-////		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
-
+		progressBar = new JProgressBar(0, enemy.getHitPoints());
+		progressBar.setBounds(1300, 600, 200, 80);
+        progressBar.setValue(enemy.getHitPoints());
+        progressBar.setStringPainted(true);
+        frame.add(progressBar);
+        
+        enemyHpDisplay = new JLabel();
+        enemyHpDisplay.setBounds(1300, 550, 200, 80);
+        enemyHpDisplay.setText(Integer.toString(enemy.getHitPoints()));;
+        frame.add(enemyHpDisplay);
 	}
 	
 	@Override
@@ -158,18 +154,14 @@ public class MainFrame extends JFrame implements ActionListener {
 			String newText;
 			
 			i++;
-			
-			
 			//player.setDamage();
 			newText ="<html> <br/> Player performed an Attack <html>";
 			combatLog = combatLog.concat(newText);
-			System.out.println("Weapon Damage "+ player.getWeapon().getDamageInflicted());
+//			System.out.println("Weapon Damage "+ player.getWeapon().getDamageInflicted());
 			enemy.takeDamage(player.getWeapon());
 			combatLog = combatLog.concat(enemy.toString());
-
-			
-//			System.out.println(combatLog);
-			
+			progressBar.setValue(enemy.getHitPoints());
+			enemyHpDisplay.setText(Integer.toString(enemy.getHitPoints()));
 			combatLabel.setText(combatLog);
 			combatLabel.paintImmediately(combatLabel.getVisibleRect());
 			combatLabel.setForeground(Color.DARK_GRAY);
